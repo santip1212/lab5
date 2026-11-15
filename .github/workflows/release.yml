@@ -24,7 +24,7 @@ jobs:
       - name: Install SFML Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libsfml-dev
+          sudo apt-get install -y libudev-dev
 
       - name: Configure CMake
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release

@@ -20,7 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Устанавливаем SFML для Linux, иначе сборка упадет
       - name: Install SFML Dependencies
         run: |
           sudo apt-get update
@@ -32,9 +31,6 @@ jobs:
       - name: Build
         run: cmake --build build --config Release
 
-      # Запускаем программу. В 5-й лабе нужен аргумент — путь к файлу модели
-      - name: Run demo
-        run: ./build/physics data/smile.txt
 
       - name: Upload Ubuntu artifact
         uses: actions/upload-artifact@v4
@@ -52,12 +48,6 @@ jobs:
 
       - name: Build
         run: cmake --build build --config Release
-
-      # Для Windows запуск физики может потребовать виртуальный экран, 
-      # так как окно SFML не может открыться в "пустом" окружении GitHub Actions.
-      # Поэтому шаг с "Run demo" мы закомментируем (он не обязателен для CI).
-      # - name: Run demo
-      #   run: .\build\Release\physics.exe data\smile.txt
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4

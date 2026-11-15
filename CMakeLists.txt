@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.7.2)
+cmake_minimum_required(VERSION 3.10)
 project(physics)
 
 set(CMAKE_CXX_STANDARD 17)
 
 # Пытаемся найти предустановленный SFML
-find_package(SFML COMPONENTS graphics)
+find_package(SFML 2.6 COMPONENTS graphics)
 
 if (SFML_FOUND)
     message(STATUS "The SFML installed in the system will be used")
